@@ -1,0 +1,22 @@
+var
+var pic = document.getElementById("svg");
+var btn = document.getElementById("clear");
+
+var draw = function(e){
+    var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("cx",e.offsetX + "");
+    c.setAttribute("cy",e.offsetY + "");
+    c.setAttribute("r", "1");
+    c.setAttribute("fill", "black");
+    c.setAttribute("stroke","black");
+    pic.appendChild(c);    
+}
+
+var clear = function() {
+    while (pic.hasChildNodes()){
+	pic.removeChild(pic.firstChild);
+    }
+}
+
+pic.addEventListener("click",draw);
+btn.addEventListener("click",clear);
